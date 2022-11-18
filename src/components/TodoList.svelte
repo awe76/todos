@@ -1,5 +1,5 @@
 <script lang="ts">
-	import todos, {deleteTodo} from '../stores/todo';
+	import todos, { deleteTodo } from '../stores/todo';
 </script>
 
 <div>
@@ -7,18 +7,18 @@
 	<ul>
 		{#each $todos as { title, key, done } (key)}
 			<li>
-                <label>
-                    <input type="checkbox" bind:checked={done}/>
-                    <input type="text" bind:value={title}/>
-                </label>
-                <button on:click={() => deleteTodo(key)}>del</button>
-            </li>
+				<label>
+					<input type="checkbox" bind:checked={done} />
+					<input type="text" bind:value={title} />
+				</label>
+				<button on:click={() => deleteTodo(key)}>del</button>
+			</li>
 		{/each}
 	</ul>
 </div>
 
 <style>
-    li {
-        list-style-type: none;
-    }
+	li {
+		list-style-type: none;
+	}
 </style>

@@ -19,6 +19,6 @@ export const deleteTodo = (key?: number) => {
 	if (key) {
 		todos.update((current) => current.filter((item) => item.key != key));
 	}
-}
+};
 
 export default todos;

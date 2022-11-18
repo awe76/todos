@@ -12,7 +12,7 @@
 			});
 			todoInput.focus();
 			todoTitle = '';
-	    }
+		}
 	};
 </script>
 
