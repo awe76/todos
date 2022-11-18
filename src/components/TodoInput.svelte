@@ -1,26 +1,25 @@
 <script lang="ts">
-	import todos from '../stores/todo';
-	import type { Todo } from '../stores/todo';
+	import { addTodo } from '../stores/todo';
 
 	let todoTitle = '';
 	let todoInput: HTMLInputElement;
 
-	const addTodo = () => {
-		const todo: Todo = {
-			title: todoTitle,
-			done: false
-		};
-
-		todos.update((current) => [...current, todo]);
-		todoInput.focus();
-		todoTitle = '';
+	const addItem = () => {
+		if (todoTitle) {
+			addTodo({
+				title: todoTitle,
+				done: false
+			});
+			todoInput.focus();
+			todoTitle = '';
+	    }
 	};
 </script>
 
 <div>
 	<label>
-		Add Todo:
-		<input bind:this={todoInput} bind:value={todoTitle} on:change={addTodo} />
+		Add Todo
+		<input bind:this={todoInput} bind:value={todoTitle} on:change={addItem} />
 	</label>
-	<button on:click={addTodo}>Add</button>
+	<button on:click={addItem}>Add</button>
 </div>
