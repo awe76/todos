@@ -3,7 +3,9 @@
 </script>
 
 <div>
-	<h2>Todos</h2>
+    {#if $todos.length > 0}
+	    <h2>Todos</h2>
+    {/if}
 	<ul>
 		{#each $todos as { title, key, done } (key)}
 			<li>
